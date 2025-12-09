@@ -1,0 +1,9 @@
+admin
+login
+test
+dev
+backup
+secret
+backdoor.php
+dashboard
+config

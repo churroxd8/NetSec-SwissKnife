@@ -1,0 +1,13 @@
+# Ignore Terraform State
+*.tfstate
+*.tfstate.backup
+.terraform/
+.terraform.lock.hcl
+
+# Ignore System Files
+.DS_Store
+Thumbs.db
+
+# Ignored Compiled Binaries
+*.exe
+*.test
