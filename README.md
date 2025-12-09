@@ -21,6 +21,11 @@ I also used **Terraform** to architect a custom "Vulnerable Lab" scenario in AWS
 ### 4. Remote Shell Client (Go)
 * **What it does:** Connects to a remote PHP backdoor and provides an interactive terminal for Command Injection.
 
+### 5. HoneyPort (Go)
+* **What it does:** A lightweight honeypot that listens on specific ports (e.g., 8080)
+* **Defense Mechanism:** Detects connection attempts, logs the attacker's IP, and sends a fake "Vulnerable Admin" banner to waste their time.
+* **Usage:** `go run tools/HoneyPort/honeyport.go 8080`
+
 ## Infrastructure as Code (Terraform)
 I built two environments in AWS:
 1. **The Fortress:** A locked-down EC2 instance allowing SSH only from my specific IP.
