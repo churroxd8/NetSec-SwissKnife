@@ -35,6 +35,16 @@ I also used **Terraform** to architect a custom "Vulnerable Lab" scenario in AWS
     * **Server:** `go run tools/ReverseShell/server/server.go`
     * **Implant:** `go run tools/ReverseShell/implant/implant.go <SERVER_IP:PORT>`
 
+### 7. Ransomware Simulator (The Locker)
+* **What it does:** Simulates a ransomware attack by encrypting files in a target directly using AES-256 (GCM Mode).
+* **Key Features:**
+    * **Encryption:** Uses Go's `crypto/aes`and `crypto/cipher` packages.
+    * **Safety First:** Hardcoded to ONLY operate inside a local `sandbox/` directory to prevent accidental data loss.
+    * **Decryptor:** Includes a counterpart tool to restore files if the correct key is provided.
+* **Usage:**
+    * **Lock:** `go run tools/locker/locker.go` (Prints the decryption key)
+    * **Unlock:** `go run tools/unlocker/unlocker.go <KEY_HEX>`
+
 ## ☁️ Infrastructure as Code (Terraform)
 I built two environments in AWS:
 1. **The Fortress:** A locked-down EC2 instance allowing SSH only from my specific IP.
