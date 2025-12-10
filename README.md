@@ -50,6 +50,14 @@ I also used **Terraform** to architect a custom "Vulnerable Lab" scenario in AWS
 * **Key Feature:** Captures traffic in real-time and prints a Hex Dump of the packets, allowing for protocol analysis and debugging.
 * **Usage:** `go run tools/proxy/proxy.go <LOCAL_PORT> <REMOTE_HOST:PORT>`
 
+### 9. File Integrity Monitor (FIM)
+* **What it does:** Calculate SHA-256 hashes of files in a target directory to create a "known good" baseline.
+* **Defense Mechanism:** Can be run in `check` mode to compare the current stage against the baseline, alerting on File Creations, Modifications, or Deletions.
+* **Usage:**
+    * **Learn:** `go run tools/simple_fim/simple_fim.go baseline <DIR>`
+    * **Check:** `go run tools/simple_fim/simple_fim.go check <DIR>`
+*Note:* Currently, it has a sandbox folder hardcoded just for testing purposes.
+
 ## ☁️ Infrastructure as Code (Terraform)
 I built two environments in AWS:
 1. **The Fortress:** A locked-down EC2 instance allowing SSH only from my specific IP.
