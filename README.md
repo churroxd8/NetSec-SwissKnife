@@ -58,6 +58,12 @@ I also used **Terraform** to architect a custom "Vulnerable Lab" scenario in AWS
     * **Check:** `go run tools/simple_fim/simple_fim.go check <DIR>`
 *Note:* Currently, it has a sandbox folder hardcoded just for testing purposes.
 
+### 10. The Ghost (Anti-Forensics)
+* **What it does:** Manipulates file timestamps (Timestomping) and securely wipes data (Shredding) to evade detection and forensic analysis.
+* **Usage:**
+    * **Timestomp:** `go run tools/ghost/ghost.go stomp <FILE> <YYYY-MM-DD>`
+    * **Shred:** `go run tools/ghost/ghost.go shred <FILE>`
+
 ## ☁️ Infrastructure as Code (Terraform)
 I built two environments in AWS:
 1. **The Fortress:** A locked-down EC2 instance allowing SSH only from my specific IP.
