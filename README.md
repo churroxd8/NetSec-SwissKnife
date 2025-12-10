@@ -45,6 +45,11 @@ I also used **Terraform** to architect a custom "Vulnerable Lab" scenario in AWS
     * **Lock:** `go run tools/locker/locker.go` (Prints the decryption key)
     * **Unlock:** `go run tools/unlocker/unlocker.go <KEY_HEX>`
 
+### 8. TCP Proxy & Hec Dumper
+* **What it does:** Creates a Man-in-the-Middle (MitM) tunnel between a local port and a remote target.
+* **Key Feature:** Captures traffic in real-time and prints a Hex Dump of the packets, allowing for protocol analysis and debugging.
+* **Usage:** `go run tools/proxy/proxy.go <LOCAL_PORT> <REMOTE_HOST:PORT>`
+
 ## ☁️ Infrastructure as Code (Terraform)
 I built two environments in AWS:
 1. **The Fortress:** A locked-down EC2 instance allowing SSH only from my specific IP.
